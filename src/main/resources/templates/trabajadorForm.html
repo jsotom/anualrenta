@@ -1,77 +1,89 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>New Person</title>
-
-  <meta charset="ISO-8859-1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+	<meta charset="UTF-8">
+	<title>Calculo de Aportes</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-<div class="container">
-<h2>New Person</h2>
-<form action="#" th:action="@{/person/new}" th:object="${person}" method="post">
-	<table class="table">
+	<div class="container">
+		<br>
+		<br>
+		<h1>Impuesto a la Renta</h1>
+		<br>
+		<br>
+		<a class="btn btn-primary btn-md" href="/trabajador/lista">Lista de Trabajadores</a>
+		<br>
+		<br>	
+				
 		
-		<tr>
-			<td>Nombre:</td>
-			<td><input type="text" th:field="*{firstName}"/></td>
-			<td th:if="${#fields.hasErrors('firstName')}"
-			    th:errors="*{firstName}">Nombre Error</td>
-		</tr>
+		<form class="form-horizontal" action="#" th:action="@{/trabajador/calculo}" th:object="${trabajador}" method="post">
+			
+			<div class="form-group">
+				<label class="control-label col-md-2" for="txtUIT">UIT</label>
+				
+				<div class="col-md-10">
+					<input type="text" class="form-control" th:field="*{uit}" id="txtUIT">
+					<span class="bg-danger text-danger" th:if="${#fields.hasErrors('uit')}"
+			    										th:errors="*{uit}">Error</span>
+				</div>
+			</div>
 		
-		<tr>
-			<td>Apellido:</td>
-			<td><input type="text" th:field="*{lastName}"/></td>
-			<td th:if="${#fields.hasErrors('lastName')}"
-			    th:errors="*{lastName}">Apellido Error</td>
-		</tr>
-
-		<tr>
-			<td>Direccion:</td>
-			<td><input type="text" th:field="*{address}"/></td>
-			<td th:if="${#fields.hasErrors('address')}"
-			    th:errors="*{address}">Direccion Error</td>
-		</tr>
-
-		<tr>
-			<td>Ciudad:</td>
-			<td><input type="text" th:field="*{city}"/></td>
-			<td th:if="${#fields.hasErrors('city')}"
-			    th:errors="*{city}">Ciudad Error</td>
-		</tr>
-
-
-		<tr>
-			<td>Telefono:</td>
-			<td><input type="text" th:field="*{phone}"/></td>
-			<td th:if="${#fields.hasErrors('phone')}"
-			    th:errors="*{phone}">Telefono Error</td>
-		</tr>
+			<div class="form-group">
+				<label class="control-label col-md-2" for="txtDni">DNI</label>
+				
+				<div class="col-md-10">
+					<input type="text" th:field="*{dni}" class="form-control" id="txtDni">
+					<span class="bg-danger text-danger" th:if="${#fields.hasErrors('dni')}"
+			    										th:errors="*{dni}">Error</span>
+				</div>
+			</div>
 		
-		<tr>
-			<td>Email:</td>
-			<td><input type="text" th:field="*{email}"/></td>
-			<td th:if="${#fields.hasErrors('email')}"
-			    th:errors="*{email}">Email error</td>
-		</tr>
+			<div class="form-group">
+				<label class="control-label col-md-2" for="txtNombre">Nombre</label>
+				
+				<div class="col-md-10">
+					<input type="text" th:field="*{name}" class="form-control" id="txtNombre">
+					<span class="bg-danger text-danger" th:if="${#fields.hasErrors('name')}"
+			    										th:errors="*{name}">Error</span>
+				</div>
+			</div>
 		
-		<tr>
-			<td></td>
-			<td><input type="submit" value="enviar" class="btn btn-primary"/>
-				<input type="reset" value="cancelar" class="btn btn-danger"/></td>
-			<td></td>
-		</tr>
-	</table>
-
-
-</form>
-<br/>
-<a href="/person/list">Listar Personas</a>	
-</div>
+			<div class="form-group">
+				<label class="control-label col-md-2" for="txtSalario">Sueldo Mensual</label>
+				
+				<div class="col-md-10">
+					<input type="text" th:field="*{sueldoMensual}" class="form-control" id="txtSalario">
+					<span class="bg-danger text-danger" th:if="${#fields.hasErrors('sueldoMensual')}"
+			    										th:errors="*{sueldoMensual}">Error</span>
+				</div>
+			</div>
+		
+			<div class="form-group">
+				<label class="control-label col-md-2">Modalidad de Trabajo</label>
+				
+				<div class="col-md-10">
+					<label class="radio-inline"><input type="radio" th:field="*{modalidadTrabajo}" th:value="Dependiente" name="optradio">Dependiente</label>
+					<label class="radio-inline"><input type="radio" th:field="*{modalidadTrabajo}" th:value="Independiente" name="optradio">Independiente</label>
+				</div>
+				<span class="bg-danger text-danger" th:if="${#fields.hasErrors('modalidadTrabajo')}"
+  										th:errors="*{modalidadTrabajo}">Error</span>
+			</div>
+			
+			<br>
+			<br>
+			
+			<div class="form-group">
+				<div class="col-md-6">
+					<input type="submit" value="Calcular" class="btn btn-success btn-block">
+				</div>
+				<div class="col-md-6">
+					<input type="reset" value="Limpiar" class="btn btn-default btn-block">
+				</div>
+			</div>
+		</form>
+	</div>
 </body>
 </html>
