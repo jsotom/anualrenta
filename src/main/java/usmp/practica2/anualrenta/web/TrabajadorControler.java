@@ -19,4 +19,13 @@ public class TrabajadorControler {
 	@Autowired
 	private TrabajadorRepository trabajadorRepository;
 
+	
+	if (trabajador.getModa().equalsIgnoreCase("Dependiente")) {
+
+		ingreso_bruto_anual = trabajador.getSalario() * 14;
+	} else {
+
+		ingreso_bruto_anual = trabajador.getSalario() * 12;
+	}
+	
 }

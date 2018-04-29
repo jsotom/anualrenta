@@ -44,6 +44,15 @@ public class Trabajador implements Serializable{
 	private Double impRentaPagar;
 	
 
+	public String getModalidadTrabajo() {
+		return modalidadTrabajo;
+		
+	
+	}
+	public void setId(String modalidadTrabajo) {
+		this.modalidadTrabajo = modalidadTrabajo;
+	}
+	
 	public Integer getId() {
 		return id;
 	}
