@@ -19,13 +19,20 @@ public class TrabajadorControler {
 	@Autowired
 	private TrabajadorRepository trabajadorRepository;
 
-	
-	if (trabajador.getModa().equalsIgnoreCase("Dependiente")) {
+	private Trabajador calcular(Trabajador trabajador) {
 
-		ingreso_bruto_anual = trabajador.getSalario() * 14;
-	} else {
-
-		ingreso_bruto_anual = trabajador.getSalario() * 12;
+		double sueldoanual = 0;
+		
+		if (trabajador.getModalidadTrabajo().equalsIgnoreCase("Dependiente")) { 
+			trabajador.setImptotalbruto(trabajador.getSueldoMensual() * 14);
+		}else {
+			trabajador.setImptotalbruto(trabajador.getSueldoMensual() * 12);
+		}
+		
+		trabajador.setImpUITdes(trabajador.getImpUIT() * 7);
+		trabajador.setRentaneta(trabajador.getImptotalbruto() - trabajador.getImpUITdes());
+		
+		
+	return trabajador;
 	}
-	
 }
