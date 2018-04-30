@@ -26,7 +26,8 @@ public class TrabajadorControler {
 		double escala2=trabajador.getImpUIT()*20;
 		double escala3=trabajador.getImpUIT()*35;
 		double escala4=trabajador.getImpUIT()*45;
-		
+		double rentapagar=0;
+		double indiceUIT;		
 		
 		if (trabajador.getModalidadTrabajo().equalsIgnoreCase("Dependiente")) { 
 			trabajador.setImptotalbruto(trabajador.getSueldoMensual() * 14);
@@ -38,7 +39,14 @@ public class TrabajadorControler {
 		trabajador.setRentaneta(trabajador.getImptotalbruto() - trabajador.getImpUITdes());
 		
 		double rentaneta=trabajador.getRentaneta();
-		
+		indiceUIT=rentaneta/
+		if (rentaneta<=0) {
+			rentapagar=0;
+			else if(rentaneta<=escala1) {
+				rentapagar=
+			}
+					
+		}
 		
 	return trabajador;
 	}
