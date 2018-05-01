@@ -26,8 +26,11 @@ public class TrabajadorControler {
 		double escala2=trabajador.getImpUIT()*20;
 		double escala3=trabajador.getImpUIT()*35;
 		double escala4=trabajador.getImpUIT()*45;
-		double rentapagar=0;
-		double indiceUIT;		
+	
+		double indiceUIT;
+		
+		double escalafija;
+		double escalavariable;
 		
 		if (trabajador.getModalidadTrabajo().equalsIgnoreCase("Dependiente")) { 
 			trabajador.setImptotalbruto(trabajador.getSueldoMensual() * 14);
@@ -39,14 +42,33 @@ public class TrabajadorControler {
 		trabajador.setRentaneta(trabajador.getImptotalbruto() - trabajador.getImpUITdes());
 		
 		double rentaneta=trabajador.getRentaneta();
-		indiceUIT=rentaneta/
-		if (rentaneta<=0) {
-			rentapagar=0;
-			else if(rentaneta<=escala1) {
-				rentapagar=
-			}
-					
+		indiceUIT=rentaneta/(trabajador.getImpUIT());
+		
+			
+		if (indiceUIT>45) {
+			
+			escalafija=(escala4-escala3)*0.2+(escala3-escala2)*0.17+(escala2-escala1)*0.14+escala1*0.08;
+			escalavariable=(rentaneta-escalafija)*0.3;
+		}else if(indiceUIT>35){
+			
+			escalafija=(escala3-escala2)*0.17+(escala2-escala1)*0.14+escala1*0.08;
+			escalavariable=(rentaneta-escalafija)*0.2;
+		}else if(indiceUIT>20){
+			
+			escalafija=(escala2-escala1)*0.14+escala1*0.08;
+			escalavariable=(rentaneta-escalafija)*0.17;
+		}else if(indiceUIT>5){
+			
+			escalafija=escala1*0.08;
+			escalavariable=(rentaneta-escalafija)*0.14;
+		}else {
+			
+			escalafija=0;
+			escalavariable=(rentaneta-escalafija)*0.08;
 		}
+		
+		trabajador.setImpRentaPagar(escalafija+escalavariable);
+		
 		
 	return trabajador;
 	}
