@@ -72,4 +72,39 @@ public class TrabajadorControler {
 		
 	return trabajador;
 	}
+	
+	@GetMapping("/trabajador/calcular")
+	private String formulario(Model model) {
+
+		model.addAttribute(new Trabajador());
+		return "formulario";
+	}
+	
+	@PostMapping("/trabajador/calcular")
+	private String calculado(@Valid Trabajador trabajador, BindingResult bindingResult) {
+		
+		if (bindingResult.hasFieldErrors()) {
+			return "formulario";
+		}
+		
+		trabajador = calcular(trabajador);
+		
+		return "calculo";
+	}
+	
+	@PostMapping("/trabajador/new")
+	private String guardarTrabajador(@ModelAttribute Trabajador trabajador) {
+
+		trabajadorRepository.save(trabajador);
+		
+		return "redirect:/trabajador/lista";
+	}
+
+	@GetMapping("/trabajador/lista")
+	private String listado(Map<String, Object> model) {
+		
+		List<Trabajador> trabajadores = trabajadorRepository.findAll();
+		model.put("trabajadores", trabajadores);
+		return "listado";
+	}
 }
