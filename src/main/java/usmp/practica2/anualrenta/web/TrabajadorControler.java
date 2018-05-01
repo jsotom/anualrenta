@@ -21,7 +21,6 @@ public class TrabajadorControler {
 
 	private Trabajador calcular(Trabajador trabajador) {
 
-		double sueldoanual = 0;
 		double escala1=trabajador.getImpUIT()*5;
 		double escala2=trabajador.getImpUIT()*20;
 		double escala3=trabajador.getImpUIT()*35;

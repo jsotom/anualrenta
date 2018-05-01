@@ -17,7 +17,7 @@
     <br>
     <br>
     
-    <a class="btn btn-primary btn-md"  href="/trabajador/calcularIR">Nuevo Cálculo</a>
+    <a class="btn btn-primary btn-md"  href="/trabajador/calcular">Nuevo Cálculo</a>
 	<br>
 	<br>
 	
@@ -37,16 +37,16 @@
       </thead>
          
       <tbody>
-        <tr th:each="trabajador : ${trabajadores}">
+        <tr th:each="trabajador : ${trabajador}">
         
         	<td th:text="${trabajador.dni}"></td>
-        	<td th:text="${trabajador.nombre}"></td>
-        	<td th:text="${trabajador.relacion_laboral}"></td>
-        	<td th:text="${trabajador.salario}"></td>
-        	<td th:text="${trabajador.uit}"></td>
-        	<td th:text="${trabajador.total_bruto}"></td>
-        	<td th:text="${trabajador.total_impuesto}"></td>
-        	<td th:text="${trabajador.total_neto}"></td>
+        	<td th:text="${trabajador.name}"></td>
+        	<td th:text="${trabajador.modalidadTrabajo}"></td>
+        	<td th:text="${trabajador.sueldoMensual}"></td>
+        	<td th:text="${trabajador.impUIT}"></td>
+        	<td th:text="${trabajador.imptotalbruto}"></td>
+        	<td th:text="${trabajador.rentaneta}"></td>
+        	<td th:text="${trabajador.impRentaPagar}"></td>
         	
         </tr>
       </tbody>

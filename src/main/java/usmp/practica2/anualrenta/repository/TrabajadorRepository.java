@@ -1,7 +1,7 @@
 package usmp.practica2.anualrenta.repository;
 import java.util.List;
 
-//import org.hibernate.sql.Delete;
+import org.hibernate.sql.Delete;
 import org.springframework.data.repository.Repository;
 
 import usmp.practica2.anualrenta.model.Trabajador;
@@ -14,7 +14,7 @@ void save(Trabajador trabajador);
 	
 	List<Trabajador> findAll();
 	
-	Trabajador findById(Integer id);
+	Trabajador findById(int id);
 	
 	void delete(Trabajador trabajador);
 }
