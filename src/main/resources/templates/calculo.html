@@ -30,7 +30,7 @@
 				<label class="control-label col-md-2" for="txtUIT">UIT</label>
 				
 				<div class="col-md-10">
-					<input type="text" class="form-control" th:field="*{uit}" id="txtUIT" readonly> 
+					<input type="text" class="form-control" th:field="*{impUIT}" id="txtUIT" readonly> 
 				</div>
 			</div>
 		
@@ -46,7 +46,7 @@
 				<label class="control-label col-md-2" for="txtNombre">Nombre</label>
 				
 				<div class="col-md-10">
-					<input type="text" th:field="*{nombre}" class="form-control" id="txtNombre" readonly>
+					<input type="text" th:field="*{name}" class="form-control" id="txtNombre" readonly>
 				</div>
 			</div>
 		
@@ -54,7 +54,7 @@
 				<label class="control-label col-md-2" for="txtSalario">Salario Mensual</label>
 				
 				<div class="col-md-10">
-					<input type="text" th:field="*{salario}" class="form-control" id="txtSalario" readonly>
+					<input type="text" th:field="*{sueldomensual}" class="form-control" id="txtSalario" readonly>
 				</div>
 			</div>
 			
@@ -70,21 +70,21 @@
 			<div class="form-group">
 				<label class="control-label col-md-2" for="txtTotalBruto">Total Bruto</label>
 				<div class="col-md-10">
-					<input type="text" th:field="*{total_bruto}" class="form-control" id="txtTotalBruto" readonly>
+					<input type="text" th:field="*{imptotalbruto}" class="form-control" id="txtTotalBruto" readonly>
 				</div>
 			</div>
 	
 			<div class="form-group">
 				<label class="control-label col-md-2" for="txtTotalImpuesto">Total Impuesto</label>
 				<div class="col-md-10">
-					<input type="text" th:field="*{total_impuesto}" class="form-control" id="txtTotalImpuesto" readonly>
+					<input type="text" th:field="*{impRentaPagar}" class="form-control" id="txtTotalImpuesto" readonly>
 				</div>
 			</div>
 	
 			<div class="form-group">
 				<label class="control-label col-md-2" for="txtTotalNeto">Total Neto</label>
 				<div class="col-md-10">
-					<input type="text" th:field="*{total_neto}" class="form-control" id="txtTotalNeto" readonly>
+					<input type="text" th:field="*{rentaneta}" class="form-control" id="txtTotalNeto" readonly>
 				</div>
 			</div>
 			
